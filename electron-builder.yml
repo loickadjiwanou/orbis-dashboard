@@ -1,0 +1,19 @@
+appId: com.orbis.dashboard
+productName: Orbis Dashboard
+directories:
+  output: dist-electron
+files:
+  - dist/**
+  - electron/**
+win:
+  target: nsis
+  icon: assets/icon.ico
+mac:
+  target: dmg
+  icon: assets/icon.icns
+linux:
+  target: AppImage
+  icon: assets/icon.png
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true

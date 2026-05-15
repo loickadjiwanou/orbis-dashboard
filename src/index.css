@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Sidebar ─────────────────────────────────────────────── */
+    --sidebar-bg: 222 47% 8%;       /* always dark regardless of page theme */
+
+    /* ── Surface hierarchy ───────────────────────────────────── */
+    --background: 214 32% 96%;      /* #F0F4F8 – cool light-gray bg */
+    --foreground: 222 47% 11%;      /* #111827 – deep navy text */
+    --card: 0 0% 100%;              /* #FFFFFF – white cards on gray bg */
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* ── Primary – Vibrant Indigo ────────────────────────────── */
+    --primary: 230 82% 60%;         /* #4361EE */
+    --primary-foreground: 0 0% 100%;
+
+    /* ── Secondary ───────────────────────────────────────────── */
+    --secondary: 214 32% 92%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* ── Muted ───────────────────────────────────────────────── */
+    --muted: 214 32% 94%;
+    --muted-foreground: 215 16% 47%; /* slate-500 equivalent */
+
+    /* ── Accent (light indigo tint) ──────────────────────────── */
+    --accent: 230 100% 97%;
+    --accent-foreground: 230 82% 44%;
+
+    /* ── Semantic ────────────────────────────────────────────── */
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* ── Borders & inputs ────────────────────────────────────── */
+    --border: 214 32% 89%;
+    --input: 214 32% 89%;
+    --ring: 230 82% 60%;
+
+    /* ── Radius – more rounded = more Material ───────────────── */
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+    --card: 222 32% 12%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 32% 12%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 230 90% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 32% 20%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 20%;
+    --input: 217 32% 20%;
+    --ring: 230 90% 67%;
+  }
+
+  /* Dimmed — pure black background, elevated cards */
+  .dimmed {
+    --sidebar-bg: 0 0% 0%;           /* sidebar also pure black */
+    --background: 0 0% 0%;           /* #000000 — absolute black */
+    --foreground: 210 40% 92%;
+    --card: 0 0% 6%;                 /* #0f0f0f — cards barely lifted */
+    --card-foreground: 210 40% 92%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 210 40% 92%;
+    --primary: 230 90% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 210 40% 92%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 215 15% 58%;
+    --accent: 0 0% 13%;
+    --accent-foreground: 210 40% 92%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 230 90% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* ── Custom scrollbar ────────────────────────────────────────── */
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-300 dark:bg-slate-700;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 dark:bg-slate-600;
+  }
+
+  /* Gradient text utility */
+  .gradient-text {
+    @apply bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent;
+  }
+
+  /* Card elevation levels */
+  .card-elevated {
+    @apply rounded-xl bg-white shadow-sm ring-1 ring-black/[0.04];
+  }
+  .card-elevated:hover {
+    @apply shadow-md;
+  }
+}
